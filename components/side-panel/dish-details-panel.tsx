@@ -44,13 +44,20 @@ export function DishDetailsPanel({
     "适合几个人吃？"
   ];
 
-  // 营养信息示例
-  const nutritionInfo = [
-    { label: "热量", value: "约 350 kcal" },
-    { label: "蛋白质", value: "18g" },
-    { label: "脂肪", value: "12g" },
-    { label: "碳水化合物", value: "35g" }
-  ];
+  // 优先使用菜品自带的营养数据
+  const nutritionInfo = dish?.nutrition
+    ? [
+        { label: '热量', value: `${dish.nutrition.calories} kcal` },
+        { label: '蛋白质', value: `${dish.nutrition.protein} g` },
+        { label: '脂肪', value: `${dish.nutrition.fat} g` },
+        { label: '碳水化合物', value: `${dish.nutrition.carbs} g` },
+      ]
+    : [
+        { label: '热量', value: '约 350 kcal' },
+        { label: '蛋白质', value: '18g' },
+        { label: '脂肪', value: '12g' },
+        { label: '碳水化合物', value: '35g' },
+      ];
 
   return (
     <div className={cn(
@@ -127,7 +134,7 @@ export function DishDetailsPanel({
               </div>
             </div>
 
-
+            
             
             {/* Mock Reviews */}
             {dish.reviews && dish.reviews.length > 0 && (

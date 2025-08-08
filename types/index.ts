@@ -13,12 +13,18 @@ export interface MenuItem {
   name: string;
   description: string;
   price: number;
-  image: string;
+  image?: string;
   category: string;
   spicyLevel?: number;
   ingredients: string[];
   recommendations?: string;
   reviews?: Review[];
+  nutrition?: {
+    calories: number;
+    carbs: number;
+    protein: number;
+    fat: number;
+  };
 }
 
 export interface Review {

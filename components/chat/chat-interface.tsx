@@ -12,8 +12,38 @@ import { WelcomeScreen } from './welcome-screen';
 import { ShoppingCartBar } from '../cart/shopping-cart-bar';
 import { CartDialog } from '../cart/cart-dialog';
 import { DishDetailsPanel } from '../side-panel/dish-details-panel';
-import { Message, ChatState, MenuItem, CartItem } from '@/types';
+import { Message, ChatState, MenuItem } from '@/types';
 import { Send, Mic } from 'lucide-react';
+import menuData from '@/data/menu.json';
+
+type RawMenuItem = {
+  id: string | number;
+  name: string;
+  description?: string;
+  price: number | string;
+  image?: string;
+  category?: string;
+  spicyLevel?: number;
+  ingredients?: string[];
+  recommendations?: string;
+  reviews?: { id: string; rating: number; comment: string; author: string }[];
+  nutrition?: { calories: number; carbs: number; protein: number; fat: number };
+};
+
+// Normalize JSON data to MenuItem[] (ensure required fields)
+const allMenuItems: MenuItem[] = (menuData as RawMenuItem[]).map((item) => ({
+  id: String(item.id),
+  name: item.name,
+  description: item.description ?? '',
+  price: Number(item.price),
+  image: item.image,
+  category: item.category ?? '其他',
+  spicyLevel: item.spicyLevel,
+  ingredients: Array.isArray(item.ingredients) ? item.ingredients : [],
+  recommendations: item.recommendations,
+  reviews: item.reviews,
+  nutrition: item.nutrition,
+}));
 
 export function ChatInterface() {
   const [chatState, setChatState] = useState<ChatState>({
@@ -31,53 +61,6 @@ export function ChatInterface() {
   const [cartDialogOpen, setCartDialogOpen] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const messagesEndRef = useRef<HTMLDivElement>(null);
-
-  // Mock dish data
-  const mockDishes: MenuItem[] = [
-    {
-      id: '1',
-      name: '宫保鸡丁',
-      description: '经典川菜，鸡肉嫩滑，花生酥脆，酸甜微辣，口感丰富',
-      price: 42,
-      image: '/dishes/gongbao.jpg',
-      category: '川菜',
-      spicyLevel: 2,
-      ingredients: ['鸡胸肉', '花生米', '青椒', '红椒', '葱'],
-      recommendations: '最近挺火的，适合重口味的你～',
-      reviews: [
-        { id: '1', rating: 5, comment: '味道很正宗，辣度刚好！', author: '美食达人' },
-        { id: '2', rating: 4, comment: '鸡肉很嫩，花生很香脆', author: '吃货小王' }
-      ]
-    },
-    {
-      id: '2',
-      name: '番茄牛腩汤',
-      description: '清香番茄配嫩滑牛腩，汤汁浓郁，营养丰富，老少皆宜',
-      price: 38,
-      image: '/dishes/tomato-beef.jpg',
-      category: '汤品',
-      spicyLevel: 0,
-      ingredients: ['牛腩', '番茄', '洋葱', '胡萝卜', '土豆'],
-      recommendations: '暖胃又营养，女生特别喜欢',
-      reviews: [
-        { id: '3', rating: 5, comment: '汤很鲜美，牛肉炖得很烂', author: '汤品爱好者' }
-      ]
-    },
-    {
-      id: '3',
-      name: '清蒸鲈鱼',
-      description: '新鲜鲈鱼清蒸制作，肉质鲜嫩，清淡健康，保持原味',
-      price: 58,
-      image: '/dishes/steamed-fish.jpg',
-      category: '海鲜',
-      spicyLevel: 0,
-      ingredients: ['鲈鱼', '蒸鱼豉油', '葱丝', '姜丝'],
-      recommendations: '健康清淡，适合养生',
-      reviews: [
-        { id: '4', rating: 5, comment: '鱼很新鲜，做法简单但味道很棒', author: '健康生活者' }
-      ]
-    }
-  ];
 
   const startChat = () => {
     setShowWelcome(false);
@@ -177,7 +160,7 @@ export function ChatInterface() {
         id: (Date.now() + 1).toString(),
         type: 'ai',
         content: '太棒了！根据你的喜好，我为你推荐了几道菜，快来看看吧 👇',
-        menuItems: mockDishes,
+        menuItems: allMenuItems.slice(0, 6),
         component: 'menu-recommendations'
       });
       setChatState(prev => ({ ...prev, currentStep: 'recommendations' }));
@@ -219,7 +202,7 @@ export function ChatInterface() {
         id: (Date.now() + 1).toString(),
         type: 'ai',
         content: '太棒了！根据你的喜好，我为你推荐了几道菜，快来看看吧 👇',
-        menuItems: mockDishes,
+        menuItems: allMenuItems.slice(0, 6),
         component: 'menu-recommendations'
       });
       setChatState(prev => ({ ...prev, currentStep: 'recommendations' }));
@@ -377,7 +360,7 @@ export function ChatInterface() {
                 <WelcomeScreen onStartChat={startChat} />
               ) : (
                 <>
-                  {chatState.messages.map((message, index) => (
+                  {chatState.messages.map((message) => (
                     <div key={message.id} className="animate-fade-in">
                       <MessageBubble message={message} isUser={message.type === 'user'} />
                       

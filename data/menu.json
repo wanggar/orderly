@@ -1,0 +1,683 @@
+[
+  {
+    "id": "hongshaorou-quail-eggs",
+    "name": "红烧肉烧鹌鹑蛋",
+    "price": 19.9,
+    "description": "五花肉小火慢卤，加入鹌鹑蛋同烧，酱香浓郁、咸甜适口。",
+    "category": "热菜",
+    "spicyLevel": 0,
+    "ingredients": ["五花肉", "鹌鹑蛋", "生抽", "老抽", "冰糖", "葱姜蒜"],
+    "nutrition": { "calories": 520, "carbs": 20, "protein": 25, "fat": 35 }
+  },
+  {
+    "id": "angus-beef",
+    "name": "安格斯肥牛",
+    "price": 19.9,
+    "description": "安格斯肥牛滑嫩入味，汤汁鲜香，微辣提味。",
+    "category": "热菜",
+    "spicyLevel": 1,
+    "ingredients": ["安格斯肥牛卷", "青红椒", "姜蒜", "高汤", "酱料"],
+    "nutrition": { "calories": 360, "carbs": 8, "protein": 24, "fat": 24 }
+  },
+  {
+    "id": "stirfried-yellow-beef",
+    "name": "小炒黄牛肉",
+    "price": 19.9,
+    "description": "湖南风味快炒，牛肉鲜香微干，蒜叶与辣椒增香。",
+    "category": "小炒",
+    "spicyLevel": 2,
+    "ingredients": ["黄牛肉", "青椒", "小米椒", "蒜苗", "生抽"],
+    "nutrition": { "calories": 410, "carbs": 10, "protein": 30, "fat": 26 }
+  },
+  {
+    "id": "lajiao-chaorou",
+    "name": "辣椒炒肉",
+    "price": 12.9,
+    "description": "家常湘味，青红辣椒与五花肉爆香，辣而不燥。",
+    "category": "小炒",
+    "spicyLevel": 2,
+    "ingredients": ["五花肉", "青椒", "小米椒", "蒜", "生抽"],
+    "nutrition": { "calories": 380, "carbs": 12, "protein": 20, "fat": 26 }
+  },
+  {
+    "id": "jintang-suancaiyu",
+    "name": "金汤酸菜鱼",
+    "price": 14.9,
+    "description": "酸爽金汤配鲜嫩鱼片，开胃不腻，微辣带麻。",
+    "category": "热菜",
+    "spicyLevel": 1,
+    "ingredients": ["草鱼片", "酸菜", "金汤底", "花椒", "小米椒"],
+    "nutrition": { "calories": 320, "carbs": 9, "protein": 28, "fat": 18 }
+  },
+  {
+    "id": "meicai-kourou",
+    "name": "梅菜扣肉",
+    "price": 12.9,
+    "description": "客家传统风味，梅干菜与五花肉同蒸，咸香浓厚。",
+    "category": "热菜",
+    "spicyLevel": 0,
+    "ingredients": ["五花肉", "梅干菜", "生抽", "老抽", "冰糖"],
+    "nutrition": { "calories": 560, "carbs": 16, "protein": 22, "fat": 44 }
+  },
+  {
+    "id": "salted-egg-yolk-lionhead",
+    "name": "咸蛋黄狮子头",
+    "price": 9.9,
+    "description": "软糯大肉丸包裹咸蛋黄，蒸炖入味，汁浓不腻。",
+    "category": "热菜",
+    "spicyLevel": 0,
+    "ingredients": ["猪肉馅", "咸蛋黄", "葱姜", "淀粉", "高汤"],
+    "nutrition": { "calories": 380, "carbs": 14, "protein": 22, "fat": 26 }
+  },
+  {
+    "id": "steamed-minced-pork-egg",
+    "name": "肉饼蒸蛋",
+    "price": 9.9,
+    "description": "家常蒸菜，肉香与滑嫩鸡蛋相融，老少皆宜。",
+    "category": "蒸菜",
+    "spicyLevel": 0,
+    "ingredients": ["猪肉馅", "鸡蛋", "生抽", "葱姜水"],
+    "nutrition": { "calories": 230, "carbs": 4, "protein": 20, "fat": 15 }
+  },
+  {
+    "id": "old-tofu-braised-pork",
+    "name": "老豆腐烧肉",
+    "price": 6.9,
+    "description": "老豆腐与五花肉同烧，豆香吸汁，微辣更下饭。",
+    "category": "热菜",
+    "spicyLevel": 1,
+    "ingredients": ["老豆腐", "五花肉", "豆瓣酱", "青红椒", "葱姜蒜"],
+    "nutrition": { "calories": 300, "carbs": 10, "protein": 18, "fat": 20 }
+  },
+  {
+    "id": "mala-tofu",
+    "name": "麻辣豆腐",
+    "price": 2.9,
+    "description": "小份川味豆腐，花椒麻香、辣味适中，开胃下饭。",
+    "category": "配菜",
+    "spicyLevel": 2,
+    "ingredients": ["嫩豆腐", "豆瓣酱", "花椒", "小米椒", "蒜末"],
+    "nutrition": { "calories": 150, "carbs": 8, "protein": 12, "fat": 7 }
+  },
+  {
+    "id": "gongbao-chicken",
+    "name": "宫爆鸡丁",
+    "price": 8.8,
+    "description": "经典川菜，鸡丁嫩滑，花生酥脆，酸甜微辣。",
+    "category": "小炒",
+    "spicyLevel": 2,
+    "ingredients": ["鸡胸肉", "花生米", "干辣椒", "青红椒", "葱姜蒜"],
+    "nutrition": { "calories": 380, "carbs": 18, "protein": 28, "fat": 20 }
+  },
+  {
+    "id": "tomato-egg-stirfry",
+    "name": "西红柿炒蛋",
+    "price": 6.9,
+    "description": "家常下饭菜，番茄酸甜与鸡蛋香滑相融。",
+    "category": "小炒",
+    "spicyLevel": 0,
+    "ingredients": ["西红柿", "鸡蛋", "葱", "糖", "盐"],
+    "nutrition": { "calories": 220, "carbs": 10, "protein": 12, "fat": 14 }
+  },
+  {
+    "id": "suancai-duck-blood",
+    "name": "酸菜鸭血",
+    "price": 6.9,
+    "description": "酸爽鲜香的小份热菜，鸭血嫩滑，汤味开胃。",
+    "category": "热菜",
+    "spicyLevel": 1,
+    "ingredients": ["鸭血", "酸菜", "高汤", "小米椒", "蒜苗"],
+    "nutrition": { "calories": 160, "carbs": 5, "protein": 16, "fat": 8 }
+  },
+  {
+    "id": "vinegar-cabbage",
+    "name": "醋溜大白菜",
+    "price": 2.9,
+    "description": "清爽酸甜，爽脆开胃的小份素菜。",
+    "category": "配菜",
+    "spicyLevel": 0,
+    "ingredients": ["大白菜", "米醋", "糖", "蒜末", "干辣椒少量"],
+    "nutrition": { "calories": 90, "carbs": 12, "protein": 2, "fat": 3 }
+  },
+  {
+    "id": "steamed-egg",
+    "name": "水蒸蛋",
+    "price": 3.9,
+    "description": "丝滑蒸蛋，口感细腻，清淡少油。",
+    "category": "蒸菜",
+    "spicyLevel": 0,
+    "ingredients": ["鸡蛋", "清水/高汤", "盐", "葱花"],
+    "nutrition": { "calories": 140, "carbs": 2, "protein": 12, "fat": 9 }
+  },
+  {
+    "id": "tomato-egg-soup",
+    "name": "西红柿蛋汤",
+    "price": 1.9,
+    "description": "清爽暖胃的家常汤品，酸甜适口。",
+    "category": "汤品",
+    "spicyLevel": 0,
+    "ingredients": ["西红柿", "鸡蛋", "高汤/清水", "葱花"],
+    "nutrition": { "calories": 60, "carbs": 6, "protein": 3, "fat": 2 }
+  },
+  {
+    "id": "rice",
+    "name": "米饭",
+    "price": 2.0,
+    "description": "现蒸白米饭，一碗约 150g。",
+    "category": "主食",
+    "spicyLevel": 0,
+    "ingredients": ["大米", "清水"],
+    "nutrition": { "calories": 230, "carbs": 50, "protein": 4, "fat": 0.5 }
+  },
+  {
+    "id": "liangpi",
+    "name": "凉皮",
+    "price": 9.0,
+    "description": "陕味凉拌面皮，筋道爽滑，辣椒油与醋香开胃。",
+    "category": "主食",
+    "spicyLevel": 1,
+    "ingredients": ["面皮", "黄瓜丝", "豆芽", "辣椒油", "陈醋", "蒜水", "芝麻"],
+    "nutrition": { "calories": 420, "carbs": 65, "protein": 8, "fat": 12 }
+  },
+  {
+    "id": "secret-liangpi",
+    "name": "秘制凉皮",
+    "price": 11.0,
+    "description": "招牌凉皮配方，辣油与蒜香更足，口味更浓郁。",
+    "category": "主食",
+    "spicyLevel": 1,
+    "ingredients": ["面皮", "黄瓜丝", "豆芽", "秘制辣油", "蒜泥", "陈醋", "芝麻酱少量"],
+    "nutrition": { "calories": 460, "carbs": 66, "protein": 9, "fat": 15 }
+  },
+  {
+    "id": "suancai-rice-noodles",
+    "name": "酸菜米线",
+    "price": 12.0,
+    "description": "酸爽开胃的汤米线，酸菜与小米椒提味。",
+    "category": "主食",
+    "spicyLevel": 1,
+    "ingredients": ["米线", "酸菜", "高汤", "小米椒", "木耳", "葱香菜"],
+    "nutrition": { "calories": 380, "carbs": 60, "protein": 10, "fat": 8 }
+  },
+  {
+    "id": "sanxian-rice-noodles",
+    "name": "三鲜米线",
+    "price": 12.0,
+    "description": "清爽三鲜汤底，配虾仁、鱼丸与蔬菜，鲜香不腻。",
+    "category": "主食",
+    "spicyLevel": 0,
+    "ingredients": ["米线", "虾仁", "鱼丸", "番茄", "木耳", "青菜", "鸡汤"],
+    "nutrition": { "calories": 360, "carbs": 55, "protein": 16, "fat": 8 }
+  },
+  {
+    "id": "mala-rice-noodles",
+    "name": "麻辣米线",
+    "price": 12.0,
+    "description": "红汤麻辣，花椒与辣椒香浓，吃起来过瘾。",
+    "category": "主食",
+    "spicyLevel": 2,
+    "ingredients": ["米线", "牛油红汤", "豆瓣酱", "花椒", "干辣椒", "葱香菜"],
+    "nutrition": { "calories": 430, "carbs": 58, "protein": 12, "fat": 14 }
+  },
+  {
+    "id": "tomato-fatty-beef-rice-noodles",
+    "name": "番茄肥牛米线",
+    "price": 25.0,
+    "description": "番茄浓汤配肥牛片，酸甜鲜香，老少皆宜。",
+    "category": "主食",
+    "spicyLevel": 0,
+    "ingredients": ["米线", "肥牛片", "番茄", "番茄酱", "洋葱", "青菜", "鸡汤"],
+    "nutrition": { "calories": 520, "carbs": 56, "protein": 22, "fat": 18 }
+  },
+  {
+    "id": "roujiang-banfan",
+    "name": "肉酱拌粉",
+    "price": 9.0,
+    "description": "热拌酸辣粉配香浓肉酱与花生碎，浓香开胃。",
+    "category": "主食",
+    "spicyLevel": 1,
+    "ingredients": ["米粉", "肉酱", "花生碎", "葱花", "香菜", "辣椒油"],
+    "nutrition": { "calories": 410, "carbs": 62, "protein": 14, "fat": 12 }
+  },
+  {
+    "id": "sesame-liangpi",
+    "name": "麻酱凉皮",
+    "price": 11.0,
+    "description": "黄瓜丝、凉皮与芝麻酱拌匀，香而不腻。",
+    "category": "主食",
+    "spicyLevel": 0,
+    "ingredients": ["面皮", "黄瓜丝", "芝麻酱", "蒜水", "酱油醋"],
+    "nutrition": { "calories": 480, "carbs": 64, "protein": 12, "fat": 18 }
+  },
+  {
+    "id": "braised-diced-chicken-rice-noodles",
+    "name": "红烧鸡丁米线",
+    "price": 15.0,
+    "description": "红烧鸡丁入味，搭配鲜汤米线，咸鲜微辣。",
+    "category": "主食",
+    "spicyLevel": 1,
+    "ingredients": ["米线", "鸡胸肉", "红烧汤底", "木耳", "青菜", "香菜"],
+    "nutrition": { "calories": 470, "carbs": 56, "protein": 22, "fat": 16 }
+  },
+  {
+    "id": "vine-pepper-beef-rice-noodles",
+    "name": "藤椒肥牛米线",
+    "price": 25.0,
+    "description": "藤椒清香麻爽，肥牛鲜嫩，汤底鲜辣但不燥。",
+    "category": "主食",
+    "spicyLevel": 2,
+    "ingredients": ["米线", "肥牛片", "藤椒油", "青花椒", "小米椒", "青菜"],
+    "nutrition": { "calories": 540, "carbs": 54, "protein": 24, "fat": 20 }
+  },
+  {
+    "id": "mipi",
+    "name": "米皮",
+    "price": 7.0,
+    "description": "米浆蒸制的凉拌米皮，软弹爽口，微辣更开胃。",
+    "category": "主食",
+    "spicyLevel": 1,
+    "ingredients": ["米皮", "黄瓜丝", "辣椒油", "蒜水", "陈醋"],
+    "nutrition": { "calories": 360, "carbs": 60, "protein": 6, "fat": 8 }
+  },
+  {
+    "id": "furong-banfan",
+    "name": "芙蓉拌粉",
+    "price": 7.0,
+    "description": "清爽口味的拌粉，蔬菜与香草点缀，适合轻口味。",
+    "category": "主食",
+    "spicyLevel": 0,
+    "ingredients": ["米粉", "香菜", "胡萝卜丝", "黄瓜丝", "酱油醋", "少量辣油可选"],
+    "nutrition": { "calories": 320, "carbs": 52, "protein": 8, "fat": 7 }
+  },
+  {
+    "id": "classic-bear-burger",
+    "name": "小满熊经典堡",
+    "price": 25.0,
+    "description": "经典美式牛肉芝士汉堡，牛肉厚实多汁，配生菜与酸黄瓜。",
+    "category": "汉堡",
+    "spicyLevel": 0,
+    "ingredients": ["汉堡胚", "牛肉饼", "切达芝士", "生菜", "番茄", "洋葱", "酸黄瓜", "番茄酱", "沙拉酱"],
+    "nutrition": { "calories": 620, "carbs": 45, "protein": 32, "fat": 32 }
+  },
+  {
+    "id": "angus-beef-burger",
+    "name": "安格斯牛肉堡",
+    "price": 15.0,
+    "description": "安格斯牛肉饼配芝士与生菜，口感鲜嫩多汁。",
+    "category": "汉堡",
+    "spicyLevel": 0,
+    "ingredients": ["汉堡胚", "安格斯牛肉饼", "芝士", "生菜", "洋葱", "番茄酱"],
+    "nutrition": { "calories": 560, "carbs": 40, "protein": 30, "fat": 28 }
+  },
+  {
+    "id": "truffle-beef-burger",
+    "name": "黑松露风味牛肉堡",
+    "price": 25.0,
+    "description": "松露风味酱搭配牛肉与芝士，香气浓郁。",
+    "category": "汉堡",
+    "spicyLevel": 0,
+    "ingredients": ["汉堡胚", "牛肉饼", "黑松露风味酱", "芝士", "生菜", "番茄"],
+    "nutrition": { "calories": 640, "carbs": 44, "protein": 33, "fat": 34 }
+  },
+  {
+    "id": "pineapple-shrimp-burger",
+    "name": "菠萝大虾堡",
+    "price": 15.0,
+    "description": "鲜虾排与香烤菠萝片，酸甜解腻。",
+    "category": "汉堡",
+    "spicyLevel": 0,
+    "ingredients": ["汉堡胚", "炸虾排", "菠萝片", "生菜", "沙拉酱"],
+    "nutrition": { "calories": 520, "carbs": 48, "protein": 22, "fat": 24 }
+  },
+  {
+    "id": "pineapple-beef-burger",
+    "name": "菠萝牛肉堡",
+    "price": 25.0,
+    "description": "牛肉饼配烤菠萝片与芝士，甜咸平衡。",
+    "category": "汉堡",
+    "spicyLevel": 0,
+    "ingredients": ["汉堡胚", "牛肉饼", "菠萝片", "芝士", "生菜", "沙拉酱"],
+    "nutrition": { "calories": 610, "carbs": 46, "protein": 30, "fat": 30 }
+  },
+  {
+    "id": "original-fried-chicken-burger",
+    "name": "原味炸鸡堡",
+    "price": 15.0,
+    "description": "外酥里嫩的炸鸡排配酸黄瓜与生菜。",
+    "category": "汉堡",
+    "spicyLevel": 0,
+    "ingredients": ["汉堡胚", "炸鸡排", "生菜", "番茄", "酸黄瓜", "沙拉酱"],
+    "nutrition": { "calories": 590, "carbs": 49, "protein": 26, "fat": 28 }
+  },
+  {
+    "id": "fresh-corn-juice",
+    "name": "现榨玉米汁",
+    "price": 4.0,
+    "description": "香甜玉米鲜打成汁，顺滑香浓。",
+    "category": "饮品",
+    "spicyLevel": 0,
+    "ingredients": ["甜玉米", "牛奶/清水", "少量糖"],
+    "nutrition": { "calories": 160, "carbs": 30, "protein": 4, "fat": 3 }
+  },
+  {
+    "id": "peanut-walnut-drink",
+    "name": "花生核桃汁",
+    "price": 6.0,
+    "description": "花生与核桃研磨饮，浓香醇厚。",
+    "category": "饮品",
+    "spicyLevel": 0,
+    "ingredients": ["花生", "核桃", "牛奶/清水", "糖"],
+    "nutrition": { "calories": 220, "carbs": 18, "protein": 6, "fat": 14 }
+  },
+  {
+    "id": "yam-red-date-drink",
+    "name": "山药红枣汁",
+    "price": 7.0,
+    "description": "山药细腻配红枣甘甜，滋补顺口。",
+    "category": "饮品",
+    "spicyLevel": 0,
+    "ingredients": ["山药", "红枣", "牛奶/清水", "冰糖"],
+    "nutrition": { "calories": 180, "carbs": 35, "protein": 3, "fat": 2 }
+  },
+  {
+    "id": "yangzhiganlu",
+    "name": "杨枝甘露",
+    "price": 9.9,
+    "description": "经典港式甜品饮，芒果、西柚与西米相融，清甜不腻。",
+    "category": "饮品",
+    "spicyLevel": 0,
+    "ingredients": ["芒果", "西柚/柚子", "西米", "椰奶", "糖"],
+    "nutrition": { "calories": 230, "carbs": 42, "protein": 3, "fat": 6 }
+  },
+  {
+    "id": "pear-lemon-tea",
+    "name": "雪梨柠檬茶",
+    "price": 9.9,
+    "description": "雪梨清甜配柠檬清香，冰爽解渴。",
+    "category": "饮品",
+    "spicyLevel": 0,
+    "ingredients": ["雪梨", "柠檬", "红茶", "糖"],
+    "nutrition": { "calories": 110, "carbs": 27, "protein": 0, "fat": 0 }
+  },
+  {
+    "id": "kumquat-passion",
+    "name": "金桔百香果",
+    "price": 9.9,
+    "description": "金桔与百香果果香融合，酸甜爽口。",
+    "category": "饮品",
+    "spicyLevel": 0,
+    "ingredients": ["金桔", "百香果", "冰水", "糖"],
+    "nutrition": { "calories": 120, "carbs": 28, "protein": 1, "fat": 0 }
+  },
+  {
+    "id": "cola",
+    "name": "可乐",
+    "price": 6.0,
+    "description": "冰爽碳酸饮料。",
+    "category": "饮品",
+    "spicyLevel": 0,
+    "ingredients": ["碳酸水", "糖", "焦糖色"],
+    "nutrition": { "calories": 140, "carbs": 35, "protein": 0, "fat": 0 }
+  },
+  {
+    "id": "fries",
+    "name": "薯条",
+    "price": 7.0,
+    "description": "金黄酥脆的炸薯条，外脆里绵。",
+    "category": "小食",
+    "spicyLevel": 0,
+    "ingredients": ["土豆", "植物油", "盐"],
+    "nutrition": { "calories": 320, "carbs": 42, "protein": 4, "fat": 15 }
+  },
+  {
+    "id": "egg-tart",
+    "name": "酥皮蛋挞",
+    "price": 4.0,
+    "description": "单个售卖，外酥内嫩的经典葡式蛋挞。",
+    "category": "甜品",
+    "spicyLevel": 0,
+    "ingredients": ["起酥皮", "鸡蛋", "牛奶", "白糖"],
+    "nutrition": { "calories": 180, "carbs": 20, "protein": 3, "fat": 10 }
+  },
+  {
+    "id": "egg-tart-3",
+    "name": "酥皮蛋挞（三个）",
+    "price": 10.0,
+    "description": "三件装更实惠。",
+    "category": "甜品",
+    "spicyLevel": 0,
+    "ingredients": ["起酥皮", "鸡蛋", "牛奶", "白糖"],
+    "nutrition": { "calories": 540, "carbs": 60, "protein": 9, "fat": 30 }
+  },
+  {
+    "id": "ice-cream-single",
+    "name": "冰淇淋（单球）",
+    "price": 7.0,
+    "description": "可选口味，单球甜筒。",
+    "category": "甜品",
+    "spicyLevel": 0,
+    "ingredients": ["牛奶", "奶油", "白糖"],
+    "nutrition": { "calories": 180, "carbs": 22, "protein": 3, "fat": 9 }
+  },
+  {
+    "id": "ice-cream-double",
+    "name": "冰淇淋（双球）",
+    "price": 9.0,
+    "description": "可选两种口味，双球甜筒。",
+    "category": "甜品",
+    "spicyLevel": 0,
+    "ingredients": ["牛奶", "奶油", "白糖"],
+    "nutrition": { "calories": 320, "carbs": 38, "protein": 5, "fat": 16 }
+  },
+  {
+    "id": "squid-ink-bun-upgrade",
+    "name": "墨鱼汁汉堡胚升级",
+    "price": 1.0,
+    "description": "+1 元将汉堡面包升级为墨鱼汁黑色汉堡胚。",
+    "category": "加价升级",
+    "spicyLevel": 0,
+    "ingredients": ["汉堡胚", "墨鱼汁"],
+    "nutrition": { "calories": 20, "carbs": 3, "protein": 1, "fat": 0 }
+  },
+  {
+    "id": "vanilla-butter-sirloin-steak",
+    "name": "香草黄油油封西冷牛排",
+    "price": 49.0,
+    "description": "西冷牛排配香草黄油油封，外焦里嫩，附薯角与沙拉。",
+    "category": "牛排",
+    "spicyLevel": 0,
+    "ingredients": ["西冷牛排", "香草黄油", "黑胡椒汁", "薯角", "生菜沙拉"],
+    "nutrition": { "calories": 720, "carbs": 28, "protein": 42, "fat": 46 }
+  },
+  {
+    "id": "vanilla-butter-ribeye-steak",
+    "name": "香草黄油油封眼肉牛排",
+    "price": 49.0,
+    "description": "眼肉多汁，搭配黄油与黑椒汁，配薯角与蔬菜。",
+    "category": "牛排",
+    "spicyLevel": 0,
+    "ingredients": ["眼肉牛排", "香草黄油", "黑胡椒汁", "薯角", "西兰花", "生菜"],
+    "nutrition": { "calories": 780, "carbs": 30, "protein": 45, "fat": 50 }
+  },
+  {
+    "id": "black-pepper-steak-secret",
+    "name": "秘制黑椒牛排",
+    "price": 49.0,
+    "description": "秘制黑椒酱煎制牛排，口味醇厚，配薯角与蔬菜。",
+    "category": "牛排",
+    "spicyLevel": 1,
+    "ingredients": ["牛排", "黑胡椒酱", "黄油", "薯角", "沙拉菜"],
+    "nutrition": { "calories": 760, "carbs": 29, "protein": 44, "fat": 48 }
+  },
+  {
+    "id": "chicken-breast-salad",
+    "name": "鸡胸肉沙拉",
+    "price": 32.0,
+    "description": "低脂鸡胸肉配时蔬与坚果，清爽高蛋白。",
+    "category": "沙拉",
+    "spicyLevel": 0,
+    "ingredients": ["鸡胸肉", "生菜", "牛油果", "圣女果", "玉米", "坚果", "沙拉汁"],
+    "nutrition": { "calories": 360, "carbs": 18, "protein": 30, "fat": 16 }
+  },
+  {
+    "id": "tuna-salad",
+    "name": "金枪鱼沙拉",
+    "price": 32.0,
+    "description": "金枪鱼与蔬果、鸡蛋搭配，清鲜不腻。",
+    "category": "沙拉",
+    "spicyLevel": 0,
+    "ingredients": ["金枪鱼", "生菜", "黄瓜", "玉米", "鸡蛋", "沙拉汁"],
+    "nutrition": { "calories": 330, "carbs": 16, "protein": 28, "fat": 14 }
+  },
+  {
+    "id": "xiaoman-bear-salad",
+    "name": "小满熊沙拉",
+    "price": 32.0,
+    "description": "店家招牌混合沙拉，配坚果与鸡蛋，营养均衡。",
+    "category": "沙拉",
+    "spicyLevel": 0,
+    "ingredients": ["生菜", "鸡蛋", "坚果", "紫甘蓝", "玉米", "沙拉汁"],
+    "nutrition": { "calories": 340, "carbs": 20, "protein": 16, "fat": 18 }
+  },
+  {
+    "id": "classic-durian-pizza",
+    "name": "经典榴莲披萨",
+    "price": 38.0,
+    "description": "榴莲果肉与芝士烤制，奶香浓郁，甜咸结合。",
+    "category": "披萨",
+    "spicyLevel": 0,
+    "ingredients": ["披萨饼底", "榴莲果肉", "马苏里拉", "淡奶油"],
+    "nutrition": { "calories": 860, "carbs": 90, "protein": 28, "fat": 40 }
+  },
+  {
+    "id": "beef-mushroom-pizza",
+    "name": "牛肉蘑菇披萨",
+    "price": 38.0,
+    "description": "牛肉与蘑菇搭配青红椒，咸香适口。",
+    "category": "披萨",
+    "spicyLevel": 1,
+    "ingredients": ["披萨饼底", "牛肉", "蘑菇", "青红椒", "马苏里拉"],
+    "nutrition": { "calories": 820, "carbs": 86, "protein": 32, "fat": 34 }
+  },
+  {
+    "id": "orleans-chicken-pizza",
+    "name": "奥尔良鸡肉披萨",
+    "price": 38.0,
+    "description": "奥尔良腌制鸡丁配甜椒与芝士，微辣多汁。",
+    "category": "披萨",
+    "spicyLevel": 1,
+    "ingredients": ["披萨饼底", "奥尔良鸡肉", "彩椒", "马苏里拉"],
+    "nutrition": { "calories": 800, "carbs": 85, "protein": 30, "fat": 32 }
+  },
+  {
+    "id": "black-pepper-beef-noodle",
+    "name": "黑胡椒肥牛面",
+    "price": 22.0,
+    "description": "黑椒酱炒肥牛拌意面，香辣开胃。",
+    "category": "意面",
+    "spicyLevel": 1,
+    "ingredients": ["意大利面", "肥牛", "黑椒酱", "青红椒", "洋葱"],
+    "nutrition": { "calories": 680, "carbs": 92, "protein": 22, "fat": 24 }
+  },
+  {
+    "id": "italy-bolognese-pasta",
+    "name": "意大利肉酱面",
+    "price": 22.0,
+    "description": "经典番茄牛肉肉酱意面，酸甜可口。",
+    "category": "意面",
+    "spicyLevel": 0,
+    "ingredients": ["意大利面", "番茄肉酱", "洋葱", "胡萝卜", "芝士碎"],
+    "nutrition": { "calories": 640, "carbs": 94, "protein": 20, "fat": 18 }
+  },
+  {
+    "id": "truffle-cream-mushroom-pasta",
+    "name": "黑松露奶油蘑菇面",
+    "price": 22.0,
+    "description": "松露香与奶油蘑菇酱拌面，浓郁顺滑。",
+    "category": "意面",
+    "spicyLevel": 0,
+    "ingredients": ["意大利面", "黑松露风味", "蘑菇", "奶油", "马苏里拉"],
+    "nutrition": { "calories": 700, "carbs": 90, "protein": 17, "fat": 28 }
+  },
+  {
+    "id": "vienna-style-platter",
+    "name": "维也纳风情拼盘",
+    "price": 35.0,
+    "description": "综合炸物拼盘，含鸡米花、玉米条、薯条等，附双酱。",
+    "category": "小食",
+    "spicyLevel": 0,
+    "ingredients": ["鸡米花", "玉米条", "薯条", "番茄酱", "沙拉酱"],
+    "nutrition": { "calories": 780, "carbs": 78, "protein": 24, "fat": 42 }
+  },
+  {
+    "id": "seine-river-platter",
+    "name": "塞纳河畔拼盘",
+    "price": 30.0,
+    "description": "洋葱圈、薯条、蟹棒等组合小食，适合分享。",
+    "category": "小食",
+    "spicyLevel": 0,
+    "ingredients": ["洋葱圈", "薯条", "蟹棒", "番茄酱", "沙拉酱"],
+    "nutrition": { "calories": 720, "carbs": 76, "protein": 16, "fat": 40 }
+  },
+  {
+    "id": "black-gold-chicken-nuggets",
+    "name": "黑金鸡块",
+    "price": 13.0,
+    "description": "炭黑外衣的炸鸡块，外酥里嫩。",
+    "category": "小食",
+    "spicyLevel": 1,
+    "ingredients": ["鸡胸肉", "裹粉", "香料", "油炸"]
+    ,
+    "nutrition": { "calories": 320, "carbs": 16, "protein": 20, "fat": 18 }
+  },
+  {
+    "id": "popcorn-chicken",
+    "name": "鸡米花",
+    "price": 12.0,
+    "description": "经典炸鸡小吃，颗粒小巧多汁。",
+    "category": "小食",
+    "spicyLevel": 1,
+    "ingredients": ["鸡胸肉", "裹粉", "胡椒", "油炸"],
+    "nutrition": { "calories": 300, "carbs": 15, "protein": 18, "fat": 16 }
+  },
+  {
+    "id": "spicy-fried-squid",
+    "name": "香炸鱿鱼",
+    "price": 28.0,
+    "description": "招牌香辣炸鱿鱼圈，外酥内韧。",
+    "category": "小食",
+    "spicyLevel": 2,
+    "ingredients": ["鱿鱼圈", "裹粉", "辣椒粉", "油炸"],
+    "nutrition": { "calories": 380, "carbs": 28, "protein": 22, "fat": 18 }
+  },
+  {
+    "id": "roast-chicken-wings",
+    "name": "奥尔良烤翅",
+    "price": 12.0,
+    "description": "奥尔良风味烤鸡翅，两只装。",
+    "category": "小食",
+    "spicyLevel": 1,
+    "ingredients": ["鸡翅", "奥尔良腌料"],
+    "nutrition": { "calories": 260, "carbs": 6, "protein": 18, "fat": 18 }
+  },
+  {
+    "id": "spicy-chicken-wings",
+    "name": "香辣鸡翅",
+    "price": 12.0,
+    "description": "香辣口味炸鸡翅，两只装。",
+    "category": "小食",
+    "spicyLevel": 2,
+    "ingredients": ["鸡翅", "辣椒粉", "裹粉"],
+    "nutrition": { "calories": 280, "carbs": 8, "protein": 19, "fat": 18 }
+  },
+  {
+    "id": "hibiscus-crab-stick",
+    "name": "芙蓉蟹棒",
+    "price": 10.0,
+    "description": "三根装仿蟹肉条，外酥内嫩。",
+    "category": "小食",
+    "spicyLevel": 0,
+    "ingredients": ["蟹柳", "裹粉", "油炸"],
+    "nutrition": { "calories": 210, "carbs": 22, "protein": 8, "fat": 10 }
+  }
+]
