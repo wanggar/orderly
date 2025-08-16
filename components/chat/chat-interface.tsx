@@ -68,9 +68,11 @@ export function ChatInterface() {
     addMessage({
       id: '1',
       type: 'ai',
-      content: '你好！我是你的AI点菜助手 🍽️ 我可以根据您的口味偏好、预算和饮食需求为您推荐合适的菜品。请告诉我您今天想吃什么样的菜，或者有什么特殊要求吗？'
+      content: '你好！我是这个餐厅的点餐助手 🍽️ 很高兴为您服务！请问您今天想要吃中餐还是西餐呢？',
+      options: ['中餐', '西餐'],
+      component: 'options-selector'
     });
-    setChatState(prev => ({ ...prev, currentStep: 'chat' }));
+    setChatState(prev => ({ ...prev, currentStep: 'cuisine-preference' }));
   };
 
   // Auto scroll to bottom
@@ -91,32 +93,13 @@ export function ChatInterface() {
     }));
   };
 
-  const handlePeopleCountSelection = (count: string) => {
+
+
+  const handleBudgetSelection = async (budget: string) => {
     addMessage({
       id: Date.now().toString(),
       type: 'user',
-      content: `我选择：${count}`
-    });
-
-    setIsTyping(true);
-    setTimeout(() => {
-      setIsTyping(false);
-      addMessage({
-        id: (Date.now() + 1).toString(),
-        type: 'ai',
-        content: '好的！现在想了解一下你的预算，这样我能为你推荐最合适的菜品 💰',
-        options: ['100元以下', '100-200元', '200-500元', '500元以上'],
-        component: 'options-selector'
-      });
-      setChatState(prev => ({ ...prev, currentStep: 'budget' }));
-    }, 1500);
-  };
-
-  const handleBudgetSelection = (budget: string) => {
-    addMessage({
-      id: Date.now().toString(),
-      type: 'user',
-      content: `我选择：${budget}`
+      content: `我选择：${budget}元`
     });
 
     // Update user profile with budget
@@ -126,17 +109,44 @@ export function ChatInterface() {
     }));
 
     setIsTyping(true);
-    setTimeout(() => {
+
+    try {
+      // 让AI基于中餐/西餐偏好和预算主动推荐菜品
+      const currentProfile = chatState.userProfile;
+      const cuisineText = currentProfile.cuisineType === 'chinese' ? '中餐' : '西餐';
+      const requestMessage = `我想要${cuisineText}，预算是${budget}元，请为我推荐一些菜品`;
+      
+      // Convert current messages to conversation history
+      const conversationHistory = convertMessagesToHistory(chatState.messages);
+      
+      // Send message to OpenAI API
+      const response = await sendChatMessage(requestMessage, conversationHistory);
+      
       setIsTyping(false);
+      
+      // Add AI response with recommendations
       addMessage({
         id: (Date.now() + 1).toString(),
         type: 'ai',
-        content: '太好了！那你更喜欢中餐还是西餐呢？🍜🍝',
-        options: ['中餐', '西餐'],
-        component: 'options-selector'
+        content: response.content,
+        menuItems: response.menuItems,
+        component: response.menuItems && response.menuItems.length > 0 ? 'menu-recommendations' : undefined
       });
-      setChatState(prev => ({ ...prev, currentStep: 'cuisine-preference' }));
-    }, 1500);
+      
+      setChatState(prev => ({ ...prev, currentStep: 'recommendations' }));
+      
+    } catch (error) {
+      setIsTyping(false);
+      console.error('API调用失败:', error);
+      
+      // 如果API调用失败，给出一个通用回复，引导用户重新尝试
+      addMessage({
+        id: (Date.now() + 1).toString(),
+        type: 'ai',
+        content: `好的，您选择了${budget}元的预算！现在请告诉我您想要什么类型的菜品，比如"我想要一些下饭的热菜"或"来点不辣的主食"，我会为您推荐合适的菜品！`,
+      });
+      setChatState(prev => ({ ...prev, currentStep: 'recommendations' }));
+    }
   };
 
   const handleCuisineSelection = (cuisine: string) => {
@@ -159,54 +169,73 @@ export function ChatInterface() {
       addMessage({
         id: (Date.now() + 1).toString(),
         type: 'ai',
-        content: '太棒了！根据你的喜好，我为你推荐了几道菜，快来看看吧 👇',
-        menuItems: allMenuItems.slice(0, 6),
-        component: 'menu-recommendations'
+        content: '好的！现在想了解一下您的预算范围，这样我能为您推荐最合适的菜品 💰',
+        options: ['10-30', '30-50', '50-100'],
+        component: 'options-selector'
       });
-      setChatState(prev => ({ ...prev, currentStep: 'recommendations' }));
+      setChatState(prev => ({ ...prev, currentStep: 'budget' }));
     }, 1500);
   };
 
   // Generic option selection handler that routes to the appropriate function
   const handleOptionSelection = (option: string) => {
     switch (chatState.currentStep) {
-      case 'welcome':
-        handlePeopleCountSelection(option);
+      case 'cuisine-preference':
+        handleCuisineSelection(option);
         break;
       case 'budget':
         handleBudgetSelection(option);
         break;
-      case 'cuisine-preference':
-        handleCuisineSelection(option);
-        break;
       default:
-        handlePeopleCountSelection(option);
+        // Default handling for any other cases
+        break;
     }
   };
 
-  const handlePreferencesInput = () => {
+  const handlePreferencesInput = async () => {
     if (!inputValue.trim()) return;
 
+    const userMessage = inputValue;
     addMessage({
       id: Date.now().toString(),
       type: 'user',
-      content: inputValue
+      content: userMessage
     });
 
     setInputValue('');
-
     setIsTyping(true);
-    setTimeout(() => {
+
+    try {
+      // Convert current messages to conversation history
+      const conversationHistory = convertMessagesToHistory(chatState.messages);
+      
+      // Send message to OpenAI API
+      const response = await sendChatMessage(userMessage, conversationHistory);
+      
       setIsTyping(false);
+      
+      // Add AI response
       addMessage({
         id: (Date.now() + 1).toString(),
         type: 'ai',
-        content: '太棒了！根据你的喜好，我为你推荐了几道菜，快来看看吧 👇',
-        menuItems: allMenuItems.slice(0, 6),
-        component: 'menu-recommendations'
+        content: response.content,
+        menuItems: response.menuItems,
+        component: response.menuItems && response.menuItems.length > 0 ? 'menu-recommendations' : undefined
       });
+      
       setChatState(prev => ({ ...prev, currentStep: 'recommendations' }));
-    }, 1500);
+      
+    } catch (error) {
+      setIsTyping(false);
+      console.error('API调用失败，使用默认回复:', error);
+      
+      // 如果API调用失败，给出一个通用回复，让用户重新尝试或使用其他方式
+      addMessage({
+        id: (Date.now() + 1).toString(),
+        type: 'ai',
+        content: '抱歉，我现在有点忙不过来。不过没关系，请告诉我您想要什么类型的菜品，比如"我想要一些不辣的热菜"，我会为您推荐合适的菜品！',
+      });
+    }
   };
 
   const handleSendMessage = async () => {
@@ -263,20 +292,23 @@ export function ChatInterface() {
   const getAIResponse = (userInput: string): string => {
     const input = userInput.toLowerCase();
     
+    if (input.includes('你是谁') || input.includes('介绍') || input.includes('什么')) {
+      return '我是这个餐厅的点餐助手！我对各种菜系都很了解，可以根据您的口味偏好、预算和饮食需求为您推荐最合适的菜品 🍽️';
+    }
     if (input.includes('辣')) {
-      return '根据你选的菜品，宫保鸡丁是中辣的，其他都比较清淡哦！如果不能吃辣，建议选番茄牛腩汤和清蒸鲈鱼 😊';
+      return '从饮食文化角度来说，辣味菜品能促进食欲和新陈代谢。根据您选的菜品，我可以告诉您具体的辣度情况，如果不能吃辣，我会推荐清淡的菜品 😊';
     }
     if (input.includes('女生') || input.includes('适合')) {
-      return '番茄牛腩汤特别适合女生，营养丰富还暖胃！清蒸鲈鱼也很棒，清淡健康 💕';
+      return '我了解不同人群的饮食偏好！女性朋友通常喜欢营养均衡、口感清淡的菜品。我可以为您推荐一些养颜美容、暖胃健脾的菜品 💕';
     }
     if (input.includes('油腻')) {
-      return '清蒸鲈鱼最清爽，完全不油腻！番茄牛腩汤也很清淡。宫保鸡丁会稍微油一些，但很香～';
+      return '我很理解您对清淡饮食的需求！在我们的菜单中，蒸菜、汤品类都比较清爽不油腻。我可以为您详细介绍每道菜的烹饪方式和口感特点～';
     }
     if (input.includes('推荐') || input.includes('建议')) {
-      return '根据你的选择，我建议这样搭配：宫保鸡丁（主菜）+ 番茄牛腩汤（汤品）+ 清蒸鲈鱼（清淡），营养均衡又美味！';
+      return '作为专业的点餐助手，我会根据营养搭配、口味层次和您的具体需求来为您推荐菜品组合。让我为您精心搭配一份营养均衡又美味的套餐！';
     }
     
-    return '我理解你的意思！还有什么想了解的可以继续问我哦～ 或者你可以点击菜品卡片查看更多详情 😊';
+    return '我很乐意为您解答任何关于菜品的问题！作为餐厅的专业点餐助手，我对每道菜的食材、口味、营养价值都很了解。还有什么想咨询的吗？ 😊';
   };
 
   const handleAddToCart = (dish: MenuItem) => {

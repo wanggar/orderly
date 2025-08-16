@@ -62,7 +62,7 @@ export function WelcomeScreen({ onStartChat }: WelcomeScreenProps) {
       </Button>
       
       <p className="text-sm text-gray-500 mt-4">
-        首先告诉我有几个人用餐吧～
+        开始为您推荐美味的菜品～
       </p>
     </div>
   );

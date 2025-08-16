@@ -168,60 +168,46 @@ export function DishDetailsPanel({
                 <div 
                   className="bg-white p-3 rounded-lg flex items-center gap-3 cursor-pointer hover:bg-gray-50 transition-colors"
                   onClick={() => onViewDetails({
-                    id: 'rec-1',
-                    name: '红烧肉',
-                    description: '经典家常菜，口感香甜，肥而不腻，色泽红亮',
-                    price: 38,
-                    image: '🥘',
-                    category: '热菜',
+                    id: 'rice',
+                    name: '米饭',
+                    description: '现蒸白米饭，一碗约 150g。',
+                    price: 2.0,
+                    category: '主食',
                     spicyLevel: 0,
-                    ingredients: ['五花肉', '冰糖', '生抽', '老抽', '料酒', '八角'],
-                    recommendations: '建议搭配米饭食用，口感更佳',
-                    reviews: [{
-                      id: '1',
-                      rating: 5,
-                      comment: '传统做法，味道正宗，肉质软烂',
-                      author: '美食爱好者'
-                    }]
+                    ingredients: ['大米', '清水'],
+                    nutrition: { calories: 230, carbs: 50, protein: 4, fat: 0.5 }
                   })}
                 >
                   <div className="w-12 h-12 bg-[#FFF5EB] rounded-lg flex items-center justify-center">
-                    <div className="text-lg">🥘</div>
+                    <div className="text-lg">🍚</div>
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-800">红烧肉</p>
-                    <p className="text-xs text-gray-500">经典家常菜，口感香甜</p>
+                    <p className="text-sm font-medium text-gray-800">米饭</p>
+                    <p className="text-xs text-gray-500">现蒸白米饭</p>
                   </div>
-                  <span className="text-sm font-semibold text-[#FF6B2D]">¥38</span>
+                  <span className="text-sm font-semibold text-[#FF6B2D]">¥2.0</span>
                 </div>
                 <div 
                   className="bg-white p-3 rounded-lg flex items-center gap-3 cursor-pointer hover:bg-gray-50 transition-colors"
                   onClick={() => onViewDetails({
-                    id: 'rec-2',
-                    name: '糖醋排骨',
-                    description: '酸甜可口，老少皆宜，色泽红亮，口感嫩滑',
-                    price: 42,
-                    image: '🍖',
-                    category: '热菜',
+                    id: 'tomato-egg-soup',
+                    name: '西红柿蛋汤',
+                    description: '清爽暖胃的家常汤品，酸甜适口。',
+                    price: 1.9,
+                    category: '汤品',
                     spicyLevel: 0,
-                    ingredients: ['排骨', '番茄酱', '白糖', '醋', '生抽', '料酒'],
-                    recommendations: '适合作为宴席菜品，老少皆宜',
-                    reviews: [{
-                      id: '2',
-                      rating: 5,
-                      comment: '酸甜适中，排骨软烂，小朋友很喜欢',
-                      author: '家庭主妇'
-                    }]
+                    ingredients: ['西红柿', '鸡蛋', '高汤/清水', '葱花'],
+                    nutrition: { calories: 60, carbs: 6, protein: 3, fat: 2 }
                   })}
                 >
                   <div className="w-12 h-12 bg-[#FFF5EB] rounded-lg flex items-center justify-center">
-                    <div className="text-lg">🍖</div>
+                    <div className="text-lg">🍲</div>
                   </div>
                   <div className="flex-1">
-                    <p className="text-sm font-medium text-gray-800">糖醋排骨</p>
-                    <p className="text-xs text-gray-500">酸甜可口，老少皆宜</p>
+                    <p className="text-sm font-medium text-gray-800">西红柿蛋汤</p>
+                    <p className="text-xs text-gray-500">清爽暖胃的家常汤品</p>
                   </div>
-                  <span className="text-sm font-semibold text-[#FF6B2D]">¥42</span>
+                  <span className="text-sm font-semibold text-[#FF6B2D]">¥1.9</span>
                 </div>
               </div>
             </div>
