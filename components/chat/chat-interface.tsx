@@ -15,6 +15,7 @@ import { DishDetailsPanel } from '../side-panel/dish-details-panel';
 import { Message, ChatState, MenuItem } from '@/types';
 import { Send, Mic } from 'lucide-react';
 import menuData from '@/data/menu.json';
+import { sendChatMessage, convertMessagesToHistory } from '@/lib/chat-api';
 
 type RawMenuItem = {
   id: string | number;
@@ -67,10 +68,9 @@ export function ChatInterface() {
     addMessage({
       id: '1',
       type: 'ai',
-      content: '你好！我是你的AI点菜助手 🍽️ 今天想吃点啥？我来帮你搭配👌',
-      options: ['1人', '2-4人', '5-8人', '8人以上'],
-      component: 'options-selector'
+      content: '你好！我是你的AI点菜助手 🍽️ 我可以根据您的口味偏好、预算和饮食需求为您推荐合适的菜品。请告诉我您今天想吃什么样的菜，或者有什么特殊要求吗？'
     });
+    setChatState(prev => ({ ...prev, currentStep: 'chat' }));
   };
 
   // Auto scroll to bottom
@@ -209,7 +209,7 @@ export function ChatInterface() {
     }, 1500);
   };
 
-  const handleSendMessage = () => {
+  const handleSendMessage = async () => {
     if (!inputValue.trim()) return;
     
     if (chatState.currentStep === 'preferences') {
@@ -217,24 +217,47 @@ export function ChatInterface() {
       return;
     }
 
+    const userMessage = inputValue;
     addMessage({
       id: Date.now().toString(),
       type: 'user',
-      content: inputValue
+      content: userMessage
     });
 
     setInputValue('');
-
-    // Simulate AI response
     setIsTyping(true);
-    setTimeout(() => {
+
+    try {
+      // Convert current messages to conversation history
+      const conversationHistory = convertMessagesToHistory(chatState.messages);
+      
+      // Send message to OpenAI API
+      const response = await sendChatMessage(userMessage, conversationHistory);
+      
       setIsTyping(false);
+      
+      // Add AI response
       addMessage({
         id: (Date.now() + 1).toString(),
         type: 'ai',
-        content: getAIResponse(inputValue)
+        content: response.content,
+        menuItems: response.menuItems,
+        component: response.menuItems && response.menuItems.length > 0 ? 'menu-recommendations' : undefined
       });
-    }, 800);
+      
+      // Update chat state if recommendations were provided
+      if (response.type === 'recommendation' && response.menuItems && response.menuItems.length > 0) {
+        setChatState(prev => ({ ...prev, currentStep: 'recommendations' }));
+      }
+      
+    } catch (error) {
+      setIsTyping(false);
+      addMessage({
+        id: (Date.now() + 2).toString(),
+        type: 'ai',
+        content: '抱歉，我现在遇到了一些技术问题。请稍后再试，或者告诉我您的具体需求，我会尽力帮助您！'
+      });
+    }
   };
 
   const getAIResponse = (userInput: string): string => {
